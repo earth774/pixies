@@ -32,7 +32,9 @@ export default function Home() {
       <div className="flex flex-col items-center">
         <div className="border border-black rounded-lg p-1 sm:p-4" style={{ width: typeof window !== 'undefined' && window.innerWidth <= 640 ? '100%' : `${width}%` }}>
           <section className="flex flex-col items-center p-2 sm:p-4">
-            <FormEditor />
+            <div className="flex flex-row items-center w-full">
+              <FormEditor />
+            </div>
             <CodeEditor />
             <Button className="mt-4 bg-[#f8e81d] text-black hover:bg-[#f8e81d]/80" onClick={handleDownload}>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-download">

@@ -6,7 +6,7 @@ export default function FormEditor() {
     const { width, setWidth } = useWidthStore();
     const [inputWidth, setInputWidth] = useState(width);
     return <div className="mb-4">
-        <div className="flex flex-row items-center hidden sm:flex">
+        <div className="flex flex-row hidden sm:flex">
             <Ruler className="w-[40px] h-[40px] text-black border border-black rounded-l-[5px] p-1" />
             <div className="flex flex-row items-center h-[40px] border border-black border-l-0 rounded-r-[5px] p-1">
                 <input className="w-[50px] focus:outline-none" value={inputWidth} min="30" max="100" onChange={(e) => {

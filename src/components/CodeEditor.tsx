@@ -10,6 +10,7 @@ import useWidthStore from "@/store/useCounterStore";
 
 export default function CodeEditor() {
   const { width } = useWidthStore();
+  const [appName, setAppName] = useState(`@amiearth`);
   const [code, setCode] = useState(`function helloWorld() {
     console.log("Hello, world!");
 }`);
@@ -53,7 +54,7 @@ export default function CodeEditor() {
               </svg>
 
               <div className="w-full flex items-center justify-center">
-                <input type="text" placeholder="Enter your name" value={`@amiearth`} className="w-full text-sm bg-transparent text-white text-center focus:outline-none" />
+                <input type="text" placeholder="Enter your name" value={appName} onChange={(e) => setAppName(e.target.value)} className="w-full text-sm bg-transparent text-white text-center focus:outline-none" />
               </div>
             </div>
 

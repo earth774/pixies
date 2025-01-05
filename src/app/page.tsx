@@ -2,11 +2,12 @@
 
 import { Button } from "@/components/ui/button";
 import domtoimage from "dom-to-image";
-import CodeEditor from "@/components/CodeEditor";
 import useWidthStore from "@/store/useCounterStore";
-import FormEditor from "@/components/FormEditor";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+
+const CodeEditor = dynamic(() => import("@/components/CodeEditor"), { ssr: false });
+const FormEditor = dynamic(() => import("@/components/FormEditor"), { ssr: false });
 
 export default function Home() {
   const { width } = useWidthStore();

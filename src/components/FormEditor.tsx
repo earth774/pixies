@@ -2,6 +2,7 @@ import useWidthStore from "@/store/useCounterStore";
 import { Ruler } from "lucide-react";
 import { useState } from "react";
 
+
 export default function FormEditor() {
     const { width, setWidth } = useWidthStore();
     const [inputWidth, setInputWidth] = useState(width);

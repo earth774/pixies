@@ -7,7 +7,7 @@ import useWidthStore from "@/store/useCounterStore";
 import FormEditor from "@/components/FormEditor";
 
 export default function Home() {
-  const { width, setWidth } = useWidthStore();
+  const { width } = useWidthStore();
   const handleDownload = () => {
     const codeBlock = document.querySelector(".editor-container");
     if (codeBlock) {

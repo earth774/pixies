@@ -9,7 +9,7 @@ import "prismjs/themes/prism-tomorrow.css";
 import useWidthStore from "@/store/useCounterStore";
 
 export default function CodeEditor() {
-  const { width, setWidth } = useWidthStore();
+  const { width } = useWidthStore();
   const [code, setCode] = useState(`function helloWorld() {
     console.log("Hello, world!");
 }`);
@@ -36,7 +36,7 @@ export default function CodeEditor() {
   }, [width]);
 
   // Calculate the number of lines
-  const lineCount = code.split("\n").length;
+  // const lineCount = code.split("\n").length;
 
   return (
     <>
@@ -73,8 +73,8 @@ export default function CodeEditor() {
             <div className="flex-1">
               <Editor
                 value={code}
-                onValueChange={(code: any) => setCode(code)}
-                highlight={(code: any) => highlight(code, languages.js, "javascript")}
+                onValueChange={(code: string) => setCode(code)}
+                highlight={(code: string) => highlight(code, languages.js, "javascript")}
                 padding={10}
                 style={{
                   backgroundColor: "#1e1e1e",

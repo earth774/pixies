@@ -5,9 +5,12 @@ import domtoimage from "dom-to-image";
 import CodeEditor from "@/components/CodeEditor";
 import useWidthStore from "@/store/useCounterStore";
 import FormEditor from "@/components/FormEditor";
+import { useEffect } from "react";
+import { useState } from "react";
 
 export default function Home() {
   const { width } = useWidthStore();
+  const [containerWidth, setContainerWidth] = useState<number | string>();
   const handleDownload = () => {
     const codeBlock = document.querySelector(".editor-container");
     if (codeBlock) {
@@ -25,12 +28,18 @@ export default function Home() {
     }
   };
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setContainerWidth(window.innerWidth <= 640 ? '100%' : `${width}%`);
+    }
+  }, [width]);
+
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4 text-center text-[#000000] text-6xl">Code Pixie</h1>
       <p className="text-center text-gray-500 text-sm pb-4">Create and share beautiful code images. Start typing to begin.</p>
       <div className="flex flex-col items-center">
-        <div className="border border-black rounded-lg p-1 sm:p-4" style={{ width: window != null && window.innerWidth <= 640 ? '100%' : `${width}%` }}>
+        <div className="border border-black rounded-lg p-1 sm:p-4" style={{ width: containerWidth }}>
           <section className="flex flex-col items-center p-2 sm:p-4">
             <div className="flex flex-row items-center w-full">
               <FormEditor />

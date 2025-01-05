@@ -16,7 +16,7 @@ export default function CodeEditor() {
 }`);
 
   const parentRef = useRef<HTMLDivElement>(null);
-  const [parentWidth, setParentWidth] = useState(0);
+  const [parentWidth, setParentWidth] = useState<number | string>();
 
   // Measure the parent element's width
   useEffect(() => {

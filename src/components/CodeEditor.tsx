@@ -15,27 +15,6 @@ export default function CodeEditor() {
     console.log("Hello, world!");
 }`);
 
-  const parentRef = useRef<HTMLDivElement>(null);
-  const [parentWidth, setParentWidth] = useState<number | string>();
-
-  // Measure the parent element's width
-  useEffect(() => {
-    const updateWidth = () => {
-      if (parentRef.current) {
-        setParentWidth(parentRef.current.offsetWidth - 30);
-      }
-    };
-
-    // Initial measurement
-    updateWidth();
-
-    // Update width on window resize
-    window.addEventListener("resize", updateWidth);
-
-    // Cleanup
-    return () => window.removeEventListener("resize", updateWidth);
-  }, [width]);
-
   // Calculate the number of lines
   // const lineCount = code.split("\n").length;
 
@@ -60,7 +39,7 @@ export default function CodeEditor() {
 
           </header>
 
-          <div className="bg-gray-900 rounded-lg p-4 font-mono flex" ref={parentRef}>
+          <div className="bg-gray-900 rounded-lg p-4 font-mono flex" >
             {/* Line numbers */}
             {/* <div className="line-numbers text-gray-500 pr-4 text-right select-none pt-[10px]">
               {Array.from({ length: lineCount }, (_, i) => (
@@ -85,7 +64,7 @@ export default function CodeEditor() {
                   lineHeight: "1.5",
                   overflowX: "auto", // Enable horizontal scrolling
                   whiteSpace: "pre", // Prevent text wrapping
-                  width: `${parentWidth}px`
+                  width: "100%"
                 }}
                 textareaClassName="code-textarea"
                 preClassName="code-pre"

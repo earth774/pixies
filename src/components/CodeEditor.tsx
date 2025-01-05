@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import Editor from "react-simple-code-editor";
 import { highlight, languages } from "prismjs";
 import "prismjs/components/prism-clike";
@@ -9,7 +9,6 @@ import "prismjs/themes/prism-tomorrow.css";
 import useWidthStore from "@/store/useCounterStore";
 
 export default function CodeEditor() {
-  const { width } = useWidthStore();
   const [appName, setAppName] = useState(`@amiearth`);
   const [code, setCode] = useState(`function helloWorld() {
     console.log("Hello, world!");

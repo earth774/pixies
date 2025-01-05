@@ -53,7 +53,7 @@ export default function CodeEditor() {
               </svg>
 
               <div className="w-full flex items-center justify-center">
-                <input type="text" placeholder="Enter your name" className="w-full text-sm bg-transparent text-white text-center focus:outline-none" />
+                <input type="text" placeholder="Enter your name" value={`@amiearth`} className="w-full text-sm bg-transparent text-white text-center focus:outline-none" />
               </div>
             </div>
 

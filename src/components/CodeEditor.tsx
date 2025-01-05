@@ -82,7 +82,6 @@ export default function CodeEditor() {
                   color: "#d4d4d4",
                   fontSize: "14px",
                   fontFamily: '"Fira Code", "Menlo", "Monaco", "Consolas", monospace',
-                  minHeight: "200px",
                   lineHeight: "1.5",
                   overflowX: "auto", // Enable horizontal scrolling
                   whiteSpace: "pre", // Prevent text wrapping

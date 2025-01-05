@@ -27,10 +27,10 @@ export default function Home() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4 text-center text-[#f8e81d] text-6xl">Code Pixie</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center text-[#000000] text-6xl">Code Pixie</h1>
       <p className="text-center text-gray-500 text-sm pb-4">Create and share beautiful code images. Start typing to begin.</p>
       <div className="flex flex-col items-center">
-        <div className="border border-black rounded-lg p-1 sm:p-4" style={{ width: typeof window !== 'undefined' && window.innerWidth <= 640 ? '100%' : `${width}%` }}>
+        <div className="border border-black rounded-lg p-1 sm:p-4" style={{ width: window != null && window.innerWidth <= 640 ? '100%' : `${width}%` }}>
           <section className="flex flex-col items-center p-2 sm:p-4">
             <div className="flex flex-row items-center w-full">
               <FormEditor />

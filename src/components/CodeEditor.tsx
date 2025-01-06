@@ -18,8 +18,8 @@ export default function CodeEditor() {
 
   return (
     <>
-      <div className="flex flex-col items-center bg-blue-500  w-full p-8">
-        <section className={`editor-container flex flex-col bg-gray-900 border border-gray-800 rounded-lg w-full`}>
+      <div className="editor-container flex flex-col items-center bg-blue-500  w-full p-8">
+        <section className={` flex flex-col bg-gray-900 border border-gray-800 rounded-lg w-full`}>
           <header>
             <div className="flex items-center pt-4 ps-4">
               <svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14">

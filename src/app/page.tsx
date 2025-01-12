@@ -4,14 +4,13 @@ import { Button } from "@/components/ui/button";
 import domtoimage from "dom-to-image";
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import { useColorStore, useWidthStore } from "@/store/useCounterStore";
+import { useWidthStore } from "@/store/useCounterStore";
 
 const CodeEditor = dynamic(() => import("@/components/CodeEditor"), { ssr: false });
 const FormEditor = dynamic(() => import("@/components/FormEditor"), { ssr: false });
 
 export default function Home() {
   const { width } = useWidthStore();
-  const { color } = useColorStore();
   const [containerWidth, setContainerWidth] = useState<number | string>();
   const handleDownload = () => {
     const codeBlock = document.querySelector(".editor-container");

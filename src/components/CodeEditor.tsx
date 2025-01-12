@@ -15,7 +15,6 @@ export default function CodeEditor() {
     console.log("Hello, world!");
 }`);
 
-  console.log(color);
   // Calculate the number of lines
   // const lineCount = code.split("\n").length;
 

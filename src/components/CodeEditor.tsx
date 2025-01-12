@@ -6,19 +6,22 @@ import { highlight, languages } from "prismjs";
 import "prismjs/components/prism-clike";
 import "prismjs/components/prism-javascript";
 import "prismjs/themes/prism-tomorrow.css";
+import { useColorStore } from "@/store/useCounterStore";
 
 export default function CodeEditor() {
+  const { color } = useColorStore();
   const [appName, setAppName] = useState(`@amiearth`);
   const [code, setCode] = useState(`function helloWorld() {
     console.log("Hello, world!");
 }`);
 
+  console.log(color);
   // Calculate the number of lines
   // const lineCount = code.split("\n").length;
 
   return (
     <>
-      <div className="editor-container flex flex-col items-center bg-blue-500  w-full p-8">
+      <div className={`editor-container flex flex-col items-center w-full p-8`} style={{ backgroundColor: color }}>
         <section className={` flex flex-col bg-gray-900 border border-gray-800 rounded-lg w-full`}>
           <header>
             <div className="flex items-center pt-4 ps-4">
@@ -55,7 +58,7 @@ export default function CodeEditor() {
                 highlight={(code: string) => highlight(code, languages.js, "javascript")}
                 padding={10}
                 style={{
-                  backgroundColor: "#1e1e1e",
+                  // backgroundColor: "#1e1e1e",
                   color: "#d4d4d4",
                   fontSize: "14px",
                   fontFamily: '"Fira Code", "Menlo", "Monaco", "Consolas", monospace',

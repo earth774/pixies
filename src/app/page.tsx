@@ -2,21 +2,32 @@
 
 import { Button } from "@/components/ui/button";
 import domtoimage from "dom-to-image";
-import useWidthStore from "@/store/useCounterStore";
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import { useColorStore, useWidthStore } from "@/store/useCounterStore";
 
 const CodeEditor = dynamic(() => import("@/components/CodeEditor"), { ssr: false });
 const FormEditor = dynamic(() => import("@/components/FormEditor"), { ssr: false });
 
 export default function Home() {
   const { width } = useWidthStore();
+  const { color } = useColorStore();
   const [containerWidth, setContainerWidth] = useState<number | string>();
   const handleDownload = () => {
     const codeBlock = document.querySelector(".editor-container");
     if (codeBlock) {
+      const scale = 2; // Increase the scale for better quality
+      const style = {
+        transform: `scale(${scale})`,
+        transformOrigin: 'top left',
+        width: codeBlock.scrollWidth + "px",
+        height: codeBlock.scrollHeight + "px"
+      };
+
+      const width = codeBlock.scrollWidth * scale;
+      const height = codeBlock.scrollHeight * scale;
       domtoimage
-        .toPng(codeBlock)
+        .toPng(codeBlock, { width, height, style })
         .then((dataUrl) => {
           const link = document.createElement("a");
           link.href = dataUrl;

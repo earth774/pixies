@@ -13,9 +13,9 @@ export default function FormEditor() {
             <Ruler className="w-[40px] h-[40px] text-black border border-black rounded-l-[5px] p-1" />
             <div className="flex flex-row items-center h-[40px] border border-black border-l-0 rounded-r-[5px] p-1">
                 <input className="w-[50px] focus:outline-none" value={inputWidth} min="30" max="100" onChange={(e) => {
-                    setInputWidth(parseInt(e.target.value));
+                    setInputWidth(parseInt(e.target.value == '' ? "30" : e.target.value));
                 }} onBlur={(e) => {
-                    let newWidth = parseInt(e.target.value);
+                    let newWidth = parseInt(e.target.value == '' ? "30" : e.target.value);
                     if (newWidth < 30) {
                         newWidth = 30;
                     } else if (newWidth > 100) {
